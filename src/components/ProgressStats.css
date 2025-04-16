@@ -1,0 +1,132 @@
+.progress-stats {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.progress-stats h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(45deg, #ffa500, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.stat-item {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item h3 {
+  color: #444;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  height: 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-value {
+  position: absolute;
+  right: 8px;
+  top: -20px;
+  color: #666;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stat-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.stat-percentage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffa500;
+}
+
+.stat-max {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .progress-stats {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .progress-stats h2 {
+    font-size: 1.8rem;
+  }
+
+  .stat-header {
+    gap: 0.8rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-item h3 {
+    font-size: 1.2rem;
+  }
+} 

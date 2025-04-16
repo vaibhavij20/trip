@@ -44,6 +44,12 @@ function Navbar() {
           </Link>
         </li>
         <li className="navbar__item">
+          <Link to="/dashboard" className="navbar__link" aria-label="Dashboard">
+            <i className="fas fa-chart-line" aria-hidden="true"></i>
+            Dashboard
+          </Link>
+        </li>
+        <li className="navbar__item">
           <Link to="/contact" className="navbar__link" aria-label="Contact">
             <i className="fas fa-phone" aria-hidden="true"></i> {/* Font Awesome icon */}
             Contact

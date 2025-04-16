@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TripPlanner.css';
+import ProgressStats from '../components/ProgressStats';
 
 function TripPlanner() {
   const [days, setDays] = useState([{ id: 1, activities: [] }]);
@@ -39,6 +40,9 @@ function TripPlanner() {
   return (
     <div className="trip-planner">
       <h1>Trip Planner</h1>
+      
+      <ProgressStats />
+      
       <div className="days-container">
         {days.map(day => (
           <div key={day.id} className="day-card">

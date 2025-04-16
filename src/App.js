@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import TripPlanner from "./pages/TripPlanner";
 import TravelGallery from "./pages/TravelGallery";
+import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
 import TravelPlan from "./pages/TravelPlan"; 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/travelPlan" element={<TravelPlan />} />
           <Route path="/trip-planner" element={<TripPlanner />} />
           <Route path="/travel-gallery" element={<TravelGallery />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </div>
