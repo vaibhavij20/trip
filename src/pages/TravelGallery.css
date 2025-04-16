@@ -21,7 +21,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: #007bff;
+  background: #ffa500;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -29,7 +29,7 @@
 }
 
 .upload-button:hover {
-  background: #0056b3;
+  background: #ff8c00;
 }
 
 .uploading-text {

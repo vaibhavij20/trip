@@ -58,26 +58,14 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 200px; /* Set a fixed width for consistency */
-}
-
-.create-new-btn {
-  background-color: #374151;
+  width: 200px;
+  background-color: #ffa500;
   color: white;
 }
 
-.create-new-btn:hover {
-  background-color:  #6c757d;
-  transform: scale(1.05);
-}
-
-.choose-existing-btn {
-  background-color: #374151;
-  color: white;
-}
-
+.create-new-btn:hover,
 .choose-existing-btn:hover {
-  background-color: #434a4a;
+  background-color: #ff8c00;
   transform: scale(1.05);
 }
 
@@ -108,7 +96,7 @@
 }
 
 .plan-btn {
-  background-color: #74605e;
+  background-color: #ffa500;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -116,11 +104,10 @@
   font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  width: 200px; /* Fixed width to match buttons */
 }
 
 .plan-btn:hover {
-  background-color: #FF4C3B;
+  background-color: #ff8c00;
   transform: scale(1.05);
 }
 
@@ -198,7 +185,7 @@
 
 /* Book Now Button */
 .book-btn {
-  background-color: #3f4941;
+  background-color: #ffa500;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -209,6 +196,6 @@
 }
 
 .book-btn:hover {
-  background-color: #218838;
+  background-color: #ff8c00;
   transform: scale(1.05);
 }
