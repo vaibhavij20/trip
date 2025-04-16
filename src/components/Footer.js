@@ -23,8 +23,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <p className="copyright">&copy; {currentYear} TRIPPY PVT. LTD. Country India USA UAE</p>
-        <p className="developer-credits">Developed by: Vaibhavi Jaiswal, Aishwarya Mohanraj, & Shubham Dubey</p>
+        <p className="copyright">&copy; {currentYear} TRIPPY PVT. LTD. Country India </p>
+        <p className="developer-credits">Developed by: Vaibhavi Jaiswal, Aishwarya Sreenivasan, & Shubham Dubey</p>
       </div>
     </footer>
   );
