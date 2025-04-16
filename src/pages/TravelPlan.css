@@ -1,0 +1,214 @@
+/* Background and Layout */
+.travel-container {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: url('https://images.unsplash.com/photo-1506261423908-ea2559c1f24c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGljZWxhbmR8ZW58MHx8MHx8fDA%3D') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  color: #333;
+  
+  position: relative;
+  justify-content: center; /* Center content vertically */
+}
+
+.travel-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for text contrast */
+  z-index: -1;
+}
+
+/* Title and Description */
+.travel-title {
+  margin-top: 30px;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.travel-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ddd;
+  text-align: center;
+}
+
+/* Trip Option Buttons */
+.trip-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  justify-content: center; /* Center the buttons */
+}
+
+.create-new-btn,
+.choose-existing-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 200px; /* Set a fixed width for consistency */
+}
+
+.create-new-btn {
+  background-color: #374151;
+  color: white;
+}
+
+.create-new-btn:hover {
+  background-color:  #6c757d;
+  transform: scale(1.05);
+}
+
+.choose-existing-btn {
+  background-color: #374151;
+  color: white;
+}
+
+.choose-existing-btn:hover {
+  background-color: #434a4a;
+  transform: scale(1.05);
+}
+
+/* Form Styling */
+.trip-form {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 600px; /* Max width for the form */
+  justify-content: center; /* Center the form */
+}
+
+.trip-form select,
+.trip-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  flex: 1;
+  transition: border-color 0.3s ease;
+}
+
+.trip-form select:focus,
+.trip-form input:focus {
+  border-color: #433e3d;
+  outline: none;
+}
+
+.plan-btn {
+  background-color: #74605e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 200px; /* Fixed width to match buttons */
+}
+
+.plan-btn:hover {
+  background-color: #FF4C3B;
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Trip Summary Section */
+.trip-summary {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  max-width: 90%;
+}
+
+.trip-summary.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Destination Card Styling */
+.destination-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 700px; /* Max width to prevent large screens */
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.destination-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.destination-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
+}
+
+.destination-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.destination-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Information in Cards */
+.destination-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.destination-card ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Book Now Button */
+.book-btn {
+  background-color: #3f4941;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}

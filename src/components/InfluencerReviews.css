@@ -1,0 +1,93 @@
+.influencer-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-container {
+  display: flex;
+  align-items: center;
+  max-width: 1100px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.image-gallery img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease-in-out;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.1);
+}
+
+.review-content {
+  flex: 1;
+  padding-left: 40px;
+}
+
+.review-content h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.review-content p {
+  margin-top: 10px;
+  color: #444;
+  font-size: 18px;
+  font-style: italic;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: #222;
+}
+
+/* Background Image Transition */
+.scrolling-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  z-index: -1;
+}
+
+/* Arrow Buttons */
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+  transition: transform 0.2s;
+}
+
+.nav-button:hover {
+  transform: scale(1.2);
+}

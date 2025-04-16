@@ -1,0 +1,106 @@
+.travel-gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 80px;
+}
+
+.travel-gallery h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.upload-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.upload-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+  background: #0056b3;
+}
+
+.uploading-text {
+  margin-top: 1rem;
+  color: #666;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+}
+
+.photo-container {
+  position: relative;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+}
+
+.photo-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-photo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.remove-photo:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.photo-info {
+  padding: 1rem;
+}
+
+.photo-info h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.photo-info p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.9rem;
+} 

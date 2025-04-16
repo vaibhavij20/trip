@@ -1,0 +1,70 @@
+.notification-banner {
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 0.75rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.notification-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.notification-text {
+  font-size: 1rem;
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+}
+
+.notification-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.next-notification,
+.close-notification {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.next-notification:hover,
+.close-notification:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .notification-text {
+    font-size: 0.9rem;
+  }
+  
+  .notification-content {
+    padding: 0 0.5rem;
+  }
+} 
