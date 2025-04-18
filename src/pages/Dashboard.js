@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   LineChart,
@@ -19,6 +19,8 @@ import './Dashboard.css';
 import ProgressStats from '../components/ProgressStats';
 
 const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('saved');
+
   // Mock data for the user
   const userProfile = {
     name: "Alex Thompson",
@@ -93,121 +95,120 @@ const Dashboard = () => {
     }
   };
 
-  return (
-    <div className="dashboard">
-      {/* User Profile Section */}
-      <motion.div 
-        className="profile-section"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div className="profile-card" variants={itemVariants}>
-          <img src={userProfile.avatar} alt="Profile" className="profile-avatar" />
-          <h2>{userProfile.name}</h2>
-          <p className="level">{userProfile.level}</p>
-          <div className="profile-stats">
-            <div>
-              <h3>{userProfile.totalTrips}</h3>
-              <p>Trips</p>
-            </div>
-            <div>
-              <h3>{userProfile.countriesVisited}</h3>
-              <p>Countries</p>
-            </div>
-            <div>
-              <h3>{userProfile.memberSince}</h3>
-              <p>Member Since</p>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      {/* Progress Stats Section */}
-      <ProgressStats />
-
-      {/* Graphs Section */}
-      <motion.div 
-        className="graphs-section"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Spending Graph */}
-        <motion.div className="graph-card" variants={itemVariants}>
-          <h3>Travel Spending</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={spendingData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Area 
-                type="monotone" 
-                dataKey="amount" 
-                stroke="#ffa500" 
-                fill="#ffa500" 
-                fillOpacity={0.3} 
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </motion.div>
-
-        {/* Travel Categories */}
-        <motion.div className="graph-card" variants={itemVariants}>
-          <h3>Travel Categories</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={travelCategories}
-                cx="50%"
-                cy="50%"
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                label
-              >
-                {travelCategories.map((entry, index) => (
-                  <Cell key={index} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </motion.div>
-      </motion.div>
-
-      {/* Recent Destinations */}
-      <motion.div 
-        className="destinations-section"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <h2>Recent Destinations</h2>
-        <div className="destinations-grid">
-          {destinations.map((destination) => (
-            <motion.div 
-              key={destination.id} 
-              className="destination-card"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="destination-image">
-                <img src={destination.image} alt={destination.name} />
-                <div className="destination-rating">
-                  ⭐ {destination.rating}
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'saved':
+        return (
+          <div className="content-section">
+            <h2>Saved Itineraries</h2>
+            <div className="content-grid">
+              <div className="content-card">
+                <h3>Paris Adventure</h3>
+                <p>5-day trip to Paris with cultural activities</p>
+                <div className="card-actions">
+                  <button className="action-button view">View</button>
+                  <button className="action-button delete">Delete</button>
                 </div>
               </div>
-              <div className="destination-info">
-                <h3>{destination.name}</h3>
-                <p>{destination.date}</p>
+              <div className="content-card">
+                <h3>Tokyo Exploration</h3>
+                <p>7-day trip to Tokyo with food tour</p>
+                <div className="card-actions">
+                  <button className="action-button view">View</button>
+                  <button className="action-button delete">Delete</button>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
+        );
+      case 'past':
+        return (
+          <div className="content-section">
+            <h2>Past Trips</h2>
+            <div className="content-grid">
+              <div className="content-card">
+                <h3>Bali Retreat</h3>
+                <p>Completed: March 2024</p>
+                <div className="card-actions">
+                  <button className="action-button view">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'upcoming':
+        return (
+          <div className="content-section">
+            <h2>Upcoming Bookings</h2>
+            <div className="content-grid">
+              <div className="content-card">
+                <h3>New York City</h3>
+                <p>Departure: April 15, 2024</p>
+                <div className="card-actions">
+                  <button className="action-button view">View Details</button>
+                  <button className="action-button cancel">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case 'journals':
+        return (
+          <div className="content-section">
+            <h2>Shared Journals</h2>
+            <div className="content-grid">
+              <div className="content-card">
+                <h3>European Adventure</h3>
+                <p>Shared with: 5 friends</p>
+                <div className="card-actions">
+                  <button className="action-button view">View Journal</button>
+                  <button className="action-button share">Share More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="dashboard-container">
+      <div className="sidebar">
+        <div className="sidebar-header">
+          <h2>Dashboard</h2>
         </div>
-      </motion.div>
+        <nav className="sidebar-nav">
+          <button
+            className={`nav-item ${activeTab === 'saved' ? 'active' : ''}`}
+            onClick={() => setActiveTab('saved')}
+          >
+            Saved Itineraries
+          </button>
+          <button
+            className={`nav-item ${activeTab === 'past' ? 'active' : ''}`}
+            onClick={() => setActiveTab('past')}
+          >
+            Past Trips
+          </button>
+          <button
+            className={`nav-item ${activeTab === 'upcoming' ? 'active' : ''}`}
+            onClick={() => setActiveTab('upcoming')}
+          >
+            Upcoming Bookings
+          </button>
+          <button
+            className={`nav-item ${activeTab === 'journals' ? 'active' : ''}`}
+            onClick={() => setActiveTab('journals')}
+          >
+            Shared Journals
+          </button>
+        </nav>
+      </div>
+      <main className="main-content">
+        {renderContent()}
+      </main>
     </div>
   );
 };

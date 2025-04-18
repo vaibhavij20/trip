@@ -1,74 +1,84 @@
 // src/components/Navbar.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ Import Link for routing
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import './Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggleFeatures = () => {
+    setIsFeaturesOpen(!isFeaturesOpen);
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar__logo">
-        <Link to="/" className="navbar__logo-link" aria-label="Homepage">
-          Trippy
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo">
+          TripPlanner
         </Link>
+        <div className="menu-icon" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
+        </div>
+        <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to="/" className="nav-links" onClick={toggleMenu}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/services" className="nav-links" onClick={toggleMenu}>
+              Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <div className="nav-links" onClick={toggleFeatures}>
+              Features <FontAwesomeIcon icon={faChevronDown} style={{ marginLeft: '5px' }} />
+            </div>
+            {isFeaturesOpen && (
+              <div className="features-dropdown">
+                <Link to="/trip-planner" className="dropdown-link" onClick={toggleMenu}>
+                  Trip Planner
+                </Link>
+                <Link to="/travel-gallery" className="dropdown-link" onClick={toggleMenu}>
+                  Travel Gallery
+                </Link>
+                <Link to="/booking" className="dropdown-link" onClick={toggleMenu}>
+                  Book Travel
+                </Link>
+                <Link to="/preferences" className="dropdown-link" onClick={toggleMenu}>
+                  Preferences
+                </Link>
+                <Link to="/reviews" className="dropdown-link" onClick={toggleMenu}>
+                  Reviews
+                </Link>
+                <Link to="/dashboard" className="dropdown-link" onClick={toggleMenu}>
+                  Dashboard
+                </Link>
+              </div>
+            )}
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-links" onClick={toggleMenu}>
+              Contact
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/auth" className="nav-links" onClick={toggleMenu}>
+              Sign In
+            </Link>
+          </li>
+        </ul>
       </div>
-      <ul className="navbar__links">
-        <li className="navbar__item">
-          <Link to="/" className="navbar__link" aria-label="Home">
-            <i className="fas fa-home" aria-hidden="true"></i> {/* Font Awesome icon */}
-            Home
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/about" className="navbar__link" aria-label="About">
-            <i className="fas fa-info-circle" aria-hidden="true"></i> {/* Font Awesome icon */}
-            About
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/services" className="navbar__link" aria-label="Services">
-            <i className="fas fa-briefcase" aria-hidden="true"></i> {/* Font Awesome icon */}
-            Service
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/trip-planner" className="navbar__link" aria-label="Trip Planner">
-            <i className="fas fa-calendar-alt" aria-hidden="true"></i> {/* Font Awesome icon */}
-            Trip Planner
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/travel-gallery" className="navbar__link" aria-label="Travel Gallery">
-            <i className="fas fa-images" aria-hidden="true"></i> {/* Font Awesome icon */}
-            Travel Gallery
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/dashboard" className="navbar__link" aria-label="Dashboard">
-            <i className="fas fa-chart-line" aria-hidden="true"></i>
-            Dashboard
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/contact" className="navbar__link" aria-label="Contact">
-            <i className="fas fa-phone" aria-hidden="true"></i> {/* Font Awesome icon */}
-            Contact
-          </Link>
-        </li>
-        <li className="navbar__item">
-          <Link to="/signup" className="navbar__link navbar__signup" aria-label="Sign Up">
-            Sign Up
-          </Link>
-        </li>
-        {/* Info icon (optional) */}
-        <li className="navbar__item navbar__info-item">
-          <Link to="/info" className="navbar__link" aria-label="Information">
-            <i className="fas fa-question-circle" aria-hidden="true"></i>
-          </Link>
-        </li>
-      </ul>
     </nav>
   );
-}
+};
 
 export default Navbar;

@@ -10,7 +10,11 @@ import TripPlanner from "./pages/TripPlanner";
 import TravelGallery from "./pages/TravelGallery";
 import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
-import TravelPlan from "./pages/TravelPlan"; 
+import TravelPlan from "./pages/TravelPlan";
+import AuthPage from "./pages/AuthPage";
+import PreferencesForm from "./pages/PreferencesForm";
+import BookingSystem from "./pages/BookingSystem";
+import Reviews from "./pages/Reviews";
 
 import "./App.css";
 
@@ -34,6 +38,10 @@ function App() {
           <Route path="/trip-planner" element={<TripPlanner />} />
           <Route path="/travel-gallery" element={<TravelGallery />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/preferences" element={<PreferencesForm />} />
+          <Route path="/booking" element={<BookingSystem />} />
+          <Route path="/reviews" element={<Reviews />} />
         </Routes>
         <Footer />
       </div>
