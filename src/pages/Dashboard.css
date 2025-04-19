@@ -232,7 +232,7 @@
 }
 
 .nav-item.active {
-  background-color: #4a90e2;
+  background-color:  #ffa500;
   color: white;
 }
 
@@ -293,7 +293,7 @@
 }
 
 .action-button.view {
-  background-color: #4a90e2;
+  background-color:  #ffa500;
   color: white;
 }
 
@@ -308,7 +308,7 @@
 }
 
 .action-button.share {
-  background-color: #28a745;
+  background-color: #ffa500;
   color: white;
 }
 
